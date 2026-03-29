@@ -1,0 +1,5 @@
+# test-p3 — main entry point
+# Write intent statements below. Each "intent:" line describes what the program should do.
+# Nexus compiles your intents into Rust and runs them.
+
+intent: print hello from test-p3

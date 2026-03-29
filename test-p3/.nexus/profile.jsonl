@@ -1,0 +1,9 @@
+{"ts": "2026-03-26T08:53:59.352437+00:00", "type": "style", "category": "naming", "pattern": "snake_case_functions", "evidence": "4/4 functions use snake_case", "confidence": 1.0}
+{"ts": "2026-03-26T08:53:59.352437+00:00", "type": "style", "category": "naming", "pattern": "descriptive_names", "evidence": "avg variable name length: 9.0 chars", "confidence": 0.6}
+{"ts": "2026-03-26T08:53:59.352437+00:00", "type": "style", "category": "structure", "pattern": "iterator_chains", "evidence": "4 iterator methods vs 0 for-loops", "confidence": 0.8}
+{"ts": "2026-03-26T08:53:59.352437+00:00", "type": "style", "category": "performance", "pattern": "borrow_oriented", "evidence": "4 borrows vs 0 clones", "confidence": 0.8}
+{"ts": "2026-03-26T08:53:59.353435+00:00", "type": "error", "error_type": "borrow_error", "module": "main.nx", "auto_fixed": false, "error_snippet": ""}
+{"ts": "2026-03-26T08:53:59.354437+00:00", "type": "error", "error_type": "borrow_error", "module": "main.nx", "auto_fixed": false, "error_snippet": ""}
+{"ts": "2026-03-26T08:53:59.354437+00:00", "type": "error", "error_type": "borrow_error", "module": "main.nx", "auto_fixed": false, "error_snippet": ""}
+{"ts": "2026-03-26T08:53:59.354437+00:00", "type": "error", "error_type": "borrow_error", "module": "main.nx", "auto_fixed": false, "error_snippet": ""}
+{"ts": "2026-03-26T08:53:59.357436+00:00", "type": "tombstone", "pattern": "type_mismatch", "context": ""}
