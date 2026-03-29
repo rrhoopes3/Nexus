@@ -1,0 +1,17 @@
+[project]
+name = "nexus-lang"
+version = "0.1.0"
+description = "Intent-driven programming language with an embedded AI core"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.39.0",
+    "openai>=1.50.0",
+    "flask>=3.0",
+]
+
+[project.scripts]
+nexus = "nexus.__main__:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
