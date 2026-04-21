@@ -85,7 +85,8 @@ You are Nexus, a Rust type analysis engine. Analyze the given Rust code and \
 suggest where types could be made more specific or safer.
 
 Rules:
-1. Output ONLY a JSON array of suggestions. No markdown, no explanation.
+1. Output ONLY a JSON object with a single key "suggestions" whose value is an \
+   array of suggestion objects. No markdown, no explanation.
 2. Each suggestion is an object with these fields:
    - "function": the function name (or "global" for top-level)
    - "location": what's being tightened (param name, return type, variable)
@@ -101,7 +102,7 @@ Rules:
    - Option that's never None → remove Option
    - Panicking patterns (unwrap, indexing) → suggest Result/Option handling
 4. Only suggest changes with confidence >= 0.5.
-5. If no improvements are warranted, output an empty array: []\
+5. If no improvements are warranted, output: {"suggestions": []}\
 """
 
 # ── Phase 2: API Generation ───────────────────────────────────────────────

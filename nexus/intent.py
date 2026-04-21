@@ -227,19 +227,30 @@ def tighten_types(rust_code: str) -> list[dict[str, Any]]:
         messages=[{"role": "user", "content": rust_code}],
         system=TIGHTEN_TYPES,
         temperature=0.1,
+        structured=True,
     )
 
     cleaned = _strip_json_fences(response)
 
     try:
-        suggestions = json.loads(cleaned)
-        if not isinstance(suggestions, list):
-            log.warning("Tighten returned non-list: %s", type(suggestions))
-            return []
-        return suggestions
+        parsed = json.loads(cleaned)
     except json.JSONDecodeError as e:
         log.warning("Failed to parse tighten response: %s", e)
         return []
+
+    # Accept {"suggestions": [...]} (structured) and bare [...] (legacy fallback)
+    if isinstance(parsed, dict):
+        suggestions = parsed.get("suggestions", [])
+    elif isinstance(parsed, list):
+        suggestions = parsed
+    else:
+        log.warning("Tighten returned unexpected shape: %s", type(parsed))
+        return []
+
+    if not isinstance(suggestions, list):
+        log.warning("Tighten 'suggestions' is not a list")
+        return []
+    return suggestions
 
 
 def apply_tighten(rust_code: str, suggestions: list[dict]) -> str:
